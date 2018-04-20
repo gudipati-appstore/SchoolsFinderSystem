@@ -1,0 +1,38 @@
+<resources>
+
+    <style name="AppTheme.SchoolInfoSystemDemo" parent="Base.AppTheme.SchoolDemo">
+
+    </style>
+
+    <style name="Base.AppTheme.SchoolDemo" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">#9c27b0</item>
+        <item name="colorPrimaryDark">#6a0080</item>
+        <item name="colorAccent">#d05ce3</item>
+    </style>
+
+    <style name="Widget.CardContent" parent="android:Widget">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">24dp</item>
+        <item name="android:paddingBottom">24dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="cardview">
+        <item name="android:layout_margin">7dp</item>
+        <item name="cardElevation">10dp</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AppTheme.SchoolInfoSystemDemo.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+    </style>
+</resources>
