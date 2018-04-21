@@ -3,7 +3,7 @@ package com.gcoders.schoolinfo.schoolsfindersystem.presenter;
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolListInfo;
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolSATResultInfo;
 import com.gcoders.schoolinfo.schoolsfindersystem.service.SchoolInfoSystemService;
-import com.gcoders.schoolinfo.schoolsfindersystem.view.SchoolListInfoView;
+import com.gcoders.schoolinfo.schoolsfindersystem.view.SchoolListInfoViewContract;
 
 import java.util.List;
 
@@ -17,10 +17,10 @@ import retrofit2.Response;
  */
 public class SchoolListPresenter {
 
-    private SchoolListInfoView schoolListView;
+    private SchoolListInfoViewContract schoolListView;
     private SchoolInfoSystemService schoolApiService;
 
-    public SchoolListPresenter(SchoolListInfoView view) {
+    public SchoolListPresenter(SchoolListInfoViewContract view) {
         this.schoolListView = view;
 
         if (this.schoolApiService == null) {
@@ -43,7 +43,6 @@ public class SchoolListPresenter {
                         } else {
                             schoolListView.onFailure("No Results found. Please try a different search..!");
                         }
-
                     }
 
                     @Override
@@ -63,7 +62,7 @@ public class SchoolListPresenter {
 
                         List<SchoolSATResultInfo> respBody;
                         if (response.body() != null) {
-                            respBody = (response.body().size() > 0) ? response.body(): null;
+                            respBody = (response.body().size() > 0) ? response.body() : null;
                             schoolListView.schoolInfoClicked(respBody);
                         } else {
                             schoolListView.onFailure("No Results found. Please try a different search..!");

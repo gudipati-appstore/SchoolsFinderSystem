@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * This class represents the SchoolList view interface.
  */
-public interface SchoolListInfoView {
+public interface SchoolListInfoViewContract {
 
     void schoolListReady(List<SchoolListInfo> schoolListInfos);
     void schoolInfoClicked(List<SchoolSATResultInfo> schoolSATResultInfos);

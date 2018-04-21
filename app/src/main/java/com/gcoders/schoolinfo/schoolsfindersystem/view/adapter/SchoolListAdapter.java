@@ -35,7 +35,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.My
     public void onBindViewHolder(final SchoolListAdapter.MyViewHolder holder, int position) {
         final SchoolListInfo schoolContent = schoolListInfoObject.get(position);
 
-        holder.textview_school_name.setText((position+1)+". "+schoolContent.getSchoolName());
+        holder.textview_school_name.setText((position + 1) + ". " + schoolContent.getSchoolName());
 
         holder.textview_school_name.setOnClickListener(new View.OnClickListener() {
             @Override
