@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 import com.gcoders.schoolinfo.schoolsfindersystem.R;
+import com.gcoders.schoolinfo.schoolsfindersystem.SchoolApplication;
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolListInfo;
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolSATResultInfo;
 import com.gcoders.schoolinfo.schoolsfindersystem.presenter.SchoolListPresenter;
@@ -17,12 +18,13 @@ import com.gcoders.schoolinfo.schoolsfindersystem.view.adapter.SchoolListAdapter
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class SchoolMainActivity extends AppCompatActivity implements SchoolListInfoViewContract {
+public class SchoolMainActivity extends AppCompatActivity implements SchoolListInfoViewContract.View {
 
     private RecyclerView recyclerview_schools_list;
-    private SchoolListPresenter schoolListPresenter;
+    private SchoolListInfoViewContract.Presenter schoolListPresenter;
+    private ArrayList<SchoolListInfo> schoolListInfoObjects;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,19 +34,19 @@ public class SchoolMainActivity extends AppCompatActivity implements SchoolListI
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        recyclerview_schools_list = findViewById(R.id.recyclerview_schools_list);
-        recyclerview_schools_list.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-
+        schoolListInfoObjects = SchoolApplication.getsInstance().getSchoolListInfoObjects();
 
         schoolListPresenter = new SchoolListPresenter(this);
-        schoolListPresenter.getSchoolList();
+
+        recyclerview_schools_list = findViewById(R.id.recyclerview_schools_list);
+        recyclerview_schools_list.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+        schoolListReady(schoolListInfoObjects);
     }
 
 
     @Override
-    public void schoolListReady(List<SchoolListInfo> schoolListInfoObjects) {
-
-        SchoolListAdapter adapter = new SchoolListAdapter(schoolListInfoObjects, new SchoolListAdapter.SchoolInfoClick() {
+    public void schoolListReady(ArrayList<SchoolListInfo> schoolListInfoObjects) {
+        SchoolListAdapter adapter = new SchoolListAdapter(schoolListInfoObjects, new SchoolListAdapter.SchoolInfoClickListener() {
             @Override
             public void onSchoolInfoClick(SchoolListInfo schoolListInfo) {
                 schoolListPresenter.getSchoolSATResultInfo(schoolListInfo.getDbn());
@@ -54,13 +56,13 @@ public class SchoolMainActivity extends AppCompatActivity implements SchoolListI
     }
 
     @Override
-    public void schoolInfoClicked(List<SchoolSATResultInfo> schoolSATResultInfos) {
+    public void schoolInfoClicked(ArrayList<SchoolSATResultInfo> schoolSATResultInfos) {
 
         if (null != schoolSATResultInfos && schoolSATResultInfos.size() > 0) {
             if (validateSATResults(schoolSATResultInfos)) {
                 Intent intent = new Intent(this, SchoolSATscoreActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("schoolsatscore", schoolSATResultInfos.get(0));
+                bundle.putParcelable("schoolsatscore", schoolSATResultInfos.get(0));
                 intent.putExtras(bundle);
                 startActivity(intent);
             } else {
@@ -76,7 +78,7 @@ public class SchoolMainActivity extends AppCompatActivity implements SchoolListI
         Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
     }
 
-    private boolean validateSATResults(List<SchoolSATResultInfo> schoolSATResultInfos) {
+    private boolean validateSATResults(ArrayList<SchoolSATResultInfo> schoolSATResultInfos) {
         SchoolSATResultInfo mSATResultInfo = schoolSATResultInfos.get(0);
         if (StringUtils.isNotBlank(mSATResultInfo.getDbn())
                 && StringUtils.isNotBlank(mSATResultInfo.getSchoolName())
@@ -89,4 +91,5 @@ public class SchoolMainActivity extends AppCompatActivity implements SchoolListI
         }
         return false;
     }
+
 }

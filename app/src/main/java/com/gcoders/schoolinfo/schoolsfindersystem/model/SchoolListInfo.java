@@ -1,10 +1,12 @@
-
 package com.gcoders.schoolinfo.schoolsfindersystem.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SchoolListInfo {
+public class SchoolListInfo implements Parcelable {
 
     @SerializedName("academicopportunities1")
     @Expose
@@ -832,4 +834,179 @@ public class SchoolListInfo {
         this.schoolSports = schoolSports;
     }
 
+
+    protected SchoolListInfo(Parcel in) {
+        academicopportunities1 = in.readString();
+        academicopportunities2 = in.readString();
+        academicopportunities3 = in.readString();
+        academicopportunities4 = in.readString();
+        academicopportunities5 = in.readString();
+        addtlInfo1 = in.readString();
+        admissionspriority11 = in.readString();
+        admissionspriority21 = in.readString();
+        attendanceRate = in.readString();
+        bbl = in.readString();
+        bin = in.readString();
+        boro = in.readString();
+        borough = in.readString();
+        buildingCode = in.readString();
+        bus = in.readString();
+        censusTract = in.readString();
+        city = in.readString();
+        code1 = in.readString();
+        collegeCareerRate = in.readString();
+        communityBoard = in.readString();
+        councilDistrict = in.readString();
+        dbn = in.readString();
+        diplomaendorsements = in.readString();
+        eligibility1 = in.readString();
+        ellPrograms = in.readString();
+        endTime = in.readString();
+        extracurricularActivities = in.readString();
+        faxNumber = in.readString();
+        finalgrades = in.readString();
+        girls = in.readString();
+        grade9geapplicants1 = in.readString();
+        grade9geapplicantsperseat1 = in.readString();
+        grade9gefilledflag1 = in.readString();
+        grade9swdapplicants1 = in.readString();
+        grade9swdapplicantsperseat1 = in.readString();
+        grade9swdfilledflag1 = in.readString();
+        grades2018 = in.readString();
+        graduationRate = in.readString();
+        interest1 = in.readString();
+        languageClasses = in.readString();
+        latitude = in.readString();
+        location = in.readString();
+        longitude = in.readString();
+        method1 = in.readString();
+        neighborhood = in.readString();
+        nta = in.readString();
+        offerRate1 = in.readString();
+        overviewParagraph = in.readString();
+        pctStuEnoughVariety = in.readString();
+        pctStuSafe = in.readString();
+        phoneNumber = in.readString();
+        primaryAddressLine1 = in.readString();
+        program1 = in.readString();
+        psalSportsBoys = in.readString();
+        psalSportsCoed = in.readString();
+        psalSportsGirls = in.readString();
+        schoolAccessibilityDescription = in.readString();
+        schoolEmail = in.readString();
+        schoolName = in.readString();
+        seats101 = in.readString();
+        seats9ge1 = in.readString();
+        seats9swd1 = in.readString();
+        sharedSpace = in.readString();
+        startTime = in.readString();
+        stateCode = in.readString();
+        subway = in.readString();
+        totalStudents = in.readString();
+        website = in.readString();
+        zip = in.readString();
+        advancedplacementCourses = in.readString();
+        campusName = in.readString();
+        international = in.readString();
+        pbat = in.readString();
+        school10thSeats = in.readString();
+        schoolSports = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(academicopportunities1);
+        dest.writeString(academicopportunities2);
+        dest.writeString(academicopportunities3);
+        dest.writeString(academicopportunities4);
+        dest.writeString(academicopportunities5);
+        dest.writeString(addtlInfo1);
+        dest.writeString(admissionspriority11);
+        dest.writeString(admissionspriority21);
+        dest.writeString(attendanceRate);
+        dest.writeString(bbl);
+        dest.writeString(bin);
+        dest.writeString(boro);
+        dest.writeString(borough);
+        dest.writeString(buildingCode);
+        dest.writeString(bus);
+        dest.writeString(censusTract);
+        dest.writeString(city);
+        dest.writeString(code1);
+        dest.writeString(collegeCareerRate);
+        dest.writeString(communityBoard);
+        dest.writeString(councilDistrict);
+        dest.writeString(dbn);
+        dest.writeString(diplomaendorsements);
+        dest.writeString(eligibility1);
+        dest.writeString(ellPrograms);
+        dest.writeString(endTime);
+        dest.writeString(extracurricularActivities);
+        dest.writeString(faxNumber);
+        dest.writeString(finalgrades);
+        dest.writeString(girls);
+        dest.writeString(grade9geapplicants1);
+        dest.writeString(grade9geapplicantsperseat1);
+        dest.writeString(grade9gefilledflag1);
+        dest.writeString(grade9swdapplicants1);
+        dest.writeString(grade9swdapplicantsperseat1);
+        dest.writeString(grade9swdfilledflag1);
+        dest.writeString(grades2018);
+        dest.writeString(graduationRate);
+        dest.writeString(interest1);
+        dest.writeString(languageClasses);
+        dest.writeString(latitude);
+        dest.writeString(location);
+        dest.writeString(longitude);
+        dest.writeString(method1);
+        dest.writeString(neighborhood);
+        dest.writeString(nta);
+        dest.writeString(offerRate1);
+        dest.writeString(overviewParagraph);
+        dest.writeString(pctStuEnoughVariety);
+        dest.writeString(pctStuSafe);
+        dest.writeString(phoneNumber);
+        dest.writeString(primaryAddressLine1);
+        dest.writeString(program1);
+        dest.writeString(psalSportsBoys);
+        dest.writeString(psalSportsCoed);
+        dest.writeString(psalSportsGirls);
+        dest.writeString(schoolAccessibilityDescription);
+        dest.writeString(schoolEmail);
+        dest.writeString(schoolName);
+        dest.writeString(seats101);
+        dest.writeString(seats9ge1);
+        dest.writeString(seats9swd1);
+        dest.writeString(sharedSpace);
+        dest.writeString(startTime);
+        dest.writeString(stateCode);
+        dest.writeString(subway);
+        dest.writeString(totalStudents);
+        dest.writeString(website);
+        dest.writeString(zip);
+        dest.writeString(advancedplacementCourses);
+        dest.writeString(campusName);
+        dest.writeString(international);
+        dest.writeString(pbat);
+        dest.writeString(school10thSeats);
+        dest.writeString(schoolSports);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<SchoolListInfo> CREATOR = new Parcelable.Creator<SchoolListInfo>() {
+        @Override
+        public SchoolListInfo createFromParcel(Parcel in) {
+            return new SchoolListInfo(in);
+        }
+
+        @Override
+        public SchoolListInfo[] newArray(int size) {
+            return new SchoolListInfo[size];
+        }
+    };
 }

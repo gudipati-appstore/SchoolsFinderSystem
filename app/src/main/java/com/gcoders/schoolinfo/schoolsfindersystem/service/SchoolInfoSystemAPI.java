@@ -3,7 +3,7 @@ package com.gcoders.schoolinfo.schoolsfindersystem.service;
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolListInfo;
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolSATResultInfo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -15,8 +15,8 @@ import retrofit2.http.Query;
 public interface SchoolInfoSystemAPI {
 
     @GET("resource/97mf-9njv.json")
-    Call<List<SchoolListInfo>> getSchoolList();
+    Call<ArrayList<SchoolListInfo>> getSchoolList();
 
     @GET("resource/734v-jeq5.json")
-    Call<List<SchoolSATResultInfo>> getSchoolSATresultsbySchoolIdentifier(@Query("dbn") String dbn);
+    Call<ArrayList<SchoolSATResultInfo>> getSchoolSATresultsbySchoolIdentifier(@Query("dbn") String schoolCode);
 }

@@ -1,12 +1,14 @@
-
 package com.gcoders.schoolinfo.schoolsfindersystem.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
 
-public class SchoolSATResultInfo implements Serializable{
+
+public class SchoolSATResultInfo implements Parcelable {
 
     @SerializedName("dbn")
     @Expose
@@ -75,4 +77,41 @@ public class SchoolSATResultInfo implements Serializable{
         this.schoolName = schoolName;
     }
 
+
+    protected SchoolSATResultInfo(Parcel in) {
+        dbn = in.readString();
+        numOfSatTestTakers = in.readString();
+        satCriticalReadingAvgScore = in.readString();
+        satMathAvgScore = in.readString();
+        satWritingAvgScore = in.readString();
+        schoolName = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(dbn);
+        dest.writeString(numOfSatTestTakers);
+        dest.writeString(satCriticalReadingAvgScore);
+        dest.writeString(satMathAvgScore);
+        dest.writeString(satWritingAvgScore);
+        dest.writeString(schoolName);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<SchoolSATResultInfo> CREATOR = new Parcelable.Creator<SchoolSATResultInfo>() {
+        @Override
+        public SchoolSATResultInfo createFromParcel(Parcel in) {
+            return new SchoolSATResultInfo(in);
+        }
+
+        @Override
+        public SchoolSATResultInfo[] newArray(int size) {
+            return new SchoolSATResultInfo[size];
+        }
+    };
 }

@@ -15,9 +15,9 @@ import java.util.List;
 public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.MyViewHolder> {
 
     private List<SchoolListInfo> schoolListInfoObject;
-    private SchoolInfoClick buttonClick;
+    private SchoolInfoClickListener buttonClick;
 
-    public SchoolListAdapter(List<SchoolListInfo> schoolListInfoObject, SchoolInfoClick buttonClick) {
+    public SchoolListAdapter(List<SchoolListInfo> schoolListInfoObject, SchoolInfoClickListener buttonClick) {
         this.schoolListInfoObject = schoolListInfoObject;
         this.buttonClick = buttonClick;
     }
@@ -52,7 +52,7 @@ public class SchoolListAdapter extends RecyclerView.Adapter<SchoolListAdapter.My
     }
 
 
-    public interface SchoolInfoClick {
+    public interface SchoolInfoClickListener {
         void onSchoolInfoClick(SchoolListInfo schoolListInfo);
     }
 

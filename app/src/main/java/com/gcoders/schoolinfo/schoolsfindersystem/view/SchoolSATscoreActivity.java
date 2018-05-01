@@ -57,7 +57,7 @@ public class SchoolSATscoreActivity extends AppCompatActivity {
     private void checkForSchoolSATResultsInfo() {
 
         if (null != getIntent().getSerializableExtra("schoolsatscore")) {
-            SchoolSATResultInfo schoolSATResultInfo = (SchoolSATResultInfo) getIntent().getSerializableExtra("schoolsatscore");
+            SchoolSATResultInfo schoolSATResultInfo = (SchoolSATResultInfo) getIntent().getParcelableExtra("schoolsatscore");
             if (null != schoolSATResultInfo) {
                 schoolSATResultsInfo = schoolSATResultInfo;
             }

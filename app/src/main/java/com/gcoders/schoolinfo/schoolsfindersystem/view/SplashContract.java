@@ -4,23 +4,25 @@ import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolListInfo;
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolSATResultInfo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class represents the SchoolList view interface.
  */
-public interface SchoolListInfoViewContract {
+public interface SplashContract {
 
     interface View {
 
-        void schoolListReady(ArrayList<SchoolListInfo> schoolListInfos);
+        void showHomePage();
+        void onFailure(String failureMessage);
+        void setSchoolListReady(ArrayList<SchoolListInfo> schoolListInfoObjects);
 
-        void schoolInfoClicked(ArrayList<SchoolSATResultInfo> schoolSATResultInfos);
-
-        void onFailure(String message);
     }
 
     interface Presenter {
 
-        void getSchoolSATResultInfo(String schoolCode);
+        void getSchoolList();
+
+
     }
 }
