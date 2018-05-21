@@ -3,6 +3,8 @@ package com.gcoders.schoolinfo.schoolsfindersystem.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.gcoders.schoolinfo.schoolsfindersystem.R;
@@ -17,6 +19,7 @@ public class SchoolSATscoreActivity extends AppCompatActivity {
     private TextView textview_school_sat_math_test_avgscore_number;
     private TextView textview_school_sat_reading_test_avgscore_number;
     private TextView textview_school_sat_writing_test_avgscore_number;
+    private Button btn_goback;
 
 
     @Override
@@ -30,6 +33,7 @@ public class SchoolSATscoreActivity extends AppCompatActivity {
         checkForSchoolSATResultsInfo();
 
         bindViews();
+        bindEvents();
         bindValues();
 
     }
@@ -41,6 +45,16 @@ public class SchoolSATscoreActivity extends AppCompatActivity {
         textview_school_sat_math_test_avgscore_number = findViewById(R.id.textview_school_sat_math_test_avgscore_number);
         textview_school_sat_reading_test_avgscore_number = findViewById(R.id.textview_school_sat_reading_test_avgscore_number);
         textview_school_sat_writing_test_avgscore_number = findViewById(R.id.textview_school_sat_writing_test_avgscore_number);
+        btn_goback = findViewById(R.id.btn_goback);
+    }
+
+    private void bindEvents() {
+        btn_goback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void bindValues() {

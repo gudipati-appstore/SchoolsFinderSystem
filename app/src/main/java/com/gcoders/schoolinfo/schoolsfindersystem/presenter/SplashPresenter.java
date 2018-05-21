@@ -1,13 +1,10 @@
 package com.gcoders.schoolinfo.schoolsfindersystem.presenter;
 
 import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolListInfo;
-import com.gcoders.schoolinfo.schoolsfindersystem.model.SchoolSATResultInfo;
 import com.gcoders.schoolinfo.schoolsfindersystem.service.SchoolInfoSystemService;
-import com.gcoders.schoolinfo.schoolsfindersystem.view.SchoolListInfoViewContract;
 import com.gcoders.schoolinfo.schoolsfindersystem.view.SplashContract;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
